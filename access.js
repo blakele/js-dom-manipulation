@@ -69,7 +69,21 @@ function insertNewPhotoCard(url, caption) {
   personPhotoImg.src = url;
   imgContainerDiv.appendChild(personPhotoImg);
 
+  var captionDiv = document.createElement('div');
+  captionDiv.classList.add('caption');
+  captionDiv.textContent = caption;
+  photoCardSection.appendChild(captionDiv);
+  console.log("captionDiv:", captionDiv);
+
   photoCardContainer.appendChild(photoCardSection);
 }
 
 insertNewPhotoCard('http://placekitten.com/480/480?image=4', 'Luke as a cat');
+insertNewPhotoCard('http://placekitten.com/480/480?image=5', 'Luke as a cat');
+
+function removeLastPhotoCard() {
+  var allPhotoCards = photoCardContainer.getElementsByClassName('photo-card');
+  var lastPhotoCard = allPhotoCards[allPhotoCards.length-1];
+  // lastPhotoCard.parentNode.removeChild(lastPhotoCard);
+  lastPhotoCard.remove();
+}
